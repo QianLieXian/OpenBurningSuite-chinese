@@ -1,4 +1,4 @@
-name: Build Windows
+name: Build Windows amd64 installer
 
 on:
   workflow_dispatch:
@@ -8,131 +8,98 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-windows-${{ github.ref }}
-  cancel-in-progress: true
+  group: windows-installer-${{ github.ref }}
+  cancel-in-progress: false
 
 env:
-  DOTNET_VERSION: '8.0.x'
-  DOTNET_CLI_TELEMETRY_OPTOUT: true
-  DOTNET_NOLOGO: true
-  APP_VERSION: '1.1.0'
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+  DOTNET_NOLOGO: 'true'
 
 jobs:
-  build-windows:
-    name: Windows ${{ matrix.arch }}
+  installer:
     runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [x64, arm64]
-        include:
-          - arch: x64
-            inno_arch_allowed: x64compatible
-            inno_arch_mode: x64compatible
-          - arch: arm64
-            inno_arch_allowed: arm64
-            inno_arch_mode: arm64
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Cache NuGet packages
-        uses: actions/cache@v5
+          dotnet-version: '8.0.x'
+      - uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: ${{ runner.os }}-nuget-
-
-      - name: Publish
-        run: dotnet publish OpenBurningSuite -c Release -r win-${{ matrix.arch }} -p:PublishReadyToRun=true --self-contained -o publish
-
-      - name: Create ZIP (Portable)
-        run: 7z a -tzip -mx=9 OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}.zip .\publish\*
-
-      - name: Install Inno Setup
-        run: |
-          choco install innosetup -y --no-progress
-          echo "C:\Program Files (x86)\Inno Setup 6" | Out-File -FilePath $env:GITHUB_PATH -Append
-
-      - name: Create Installer
+          key: windows-nuget-${{ hashFiles('**/*.csproj') }}
+      - name: Validate localization and behavior
         shell: pwsh
         run: |
-          $iss = @"
-          [Setup]
-          AppName=Open Burning Suite
-          AppVersion=${{ env.APP_VERSION }}
-          AppPublisher=SvenGDK
-          AppPublisherURL=https://github.com/SvenGDK/OpenBurningSuite
-          DefaultDirName={autopf}\OpenBurningSuite
-          DefaultGroupName=Open Burning Suite
-          UninstallDisplayIcon={app}\OpenBurningSuite.exe
-          OutputDir=installer
-          OutputBaseFilename=OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}-Installer
-          Compression=lzma2/ultra64
-          SolidCompression=yes
-          WizardStyle=modern
-          ArchitecturesAllowed=${{ matrix.inno_arch_allowed }}
-          ArchitecturesInstallIn64BitMode=${{ matrix.inno_arch_mode }}
-          LicenseFile=publish\LICENSE
-          PrivilegesRequired=admin
-
-          [Tasks]
-          Name: "desktopicon"; Description: "Create a desktop shortcut"; GroupDescription: "Additional shortcuts:"
-
-          [Files]
-          Source: "publish\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion
-
-          [Icons]
-          Name: "{group}\Open Burning Suite"; Filename: "{app}\OpenBurningSuite.exe"
-          Name: "{group}\Uninstall Open Burning Suite"; Filename: "{uninstallexe}"
-          Name: "{autodesktop}\Open Burning Suite"; Filename: "{app}\OpenBurningSuite.exe"; Tasks: desktopicon
-
-          [Run]
-          Filename: "{app}\OpenBurningSuite.exe"; Description: "Launch Open Burning Suite"; Flags: nowait postinstall skipifsilent
-          "@
-          Set-Content -Path installer.iss -Value $iss -Encoding UTF8
-          ISCC installer.iss
-
-      - name: Upload ZIP (Portable)
-        uses: actions/upload-artifact@v5
+          python scripts/check-localization.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet run --project tests/Localization.Tests -c Release
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Publish self-contained Windows amd64 application
+        shell: pwsh
+        run: |
+          $version = dotnet msbuild OpenBurningSuite/OpenBurningSuite.csproj -getProperty:Version
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne "v$version") {
+            throw "Release tag must match project version v$version"
+          }
+          "APP_VERSION=$version" >> $env:GITHUB_ENV
+          dotnet publish OpenBurningSuite/OpenBurningSuite.csproj -c Release -r win-x64 --self-contained true -p:PublishReadyToRun=true -o publish
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Install verified official Inno Setup 7.1.1
+        shell: pwsh
+        run: |
+          $setup = Join-Path $env:RUNNER_TEMP 'innosetup-7.1.1-x64.exe'
+          Invoke-WebRequest 'https://github.com/jrsoftware/issrc/releases/download/is-7_1_1/innosetup-7.1.1-x64.exe' -OutFile $setup
+          if ((Get-FileHash $setup -Algorithm SHA256).Hash.ToLowerInvariant() -ne '8a5a6711c3766a6e5fb74f280ba0e3551e719ce94538d901fdbd1f8f9920b3f0') {
+            throw 'Inno Setup checksum mismatch'
+          }
+          $compiler = Join-Path $env:RUNNER_TEMP 'InnoSetup'
+          $installation = Start-Process $setup -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/DIR=$compiler") -Wait -PassThru
+          if ($installation.ExitCode -ne 0) { throw 'Inno Setup installation failed' }
+          "INNO_DIR=$compiler" >> $env:GITHUB_ENV
+      - name: Build multilingual installer
+        shell: pwsh
+        run: |
+          & "$env:INNO_DIR\ISCC.exe" "/DAppVersion=$env:APP_VERSION" build/installer.iss
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Verify installation language and application startup
+        shell: pwsh
+        run: |
+          $installer = (Get-Item installer/*.exe).FullName
+          foreach ($language in @('en', 'ru', 'zh-Hans', 'ja')) {
+            $installerLanguage = if ($language -eq 'zh-Hans') { 'zh' } else { $language }
+            $target = Join-Path $env:RUNNER_TEMP "OBS-$language"
+            $setup = Start-Process $installer -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/LANG=$installerLanguage", "/DIR=$target") -Wait -PassThru
+            if ($setup.ExitCode -ne 0) { throw "Installation failed: $language, exit $($setup.ExitCode)" }
+            $selected = (Get-ItemProperty 'HKLM:\Software\OpenBurningSuite').UILanguage
+            if ($selected -ne $installerLanguage) { throw "Installer language was not persisted: $language" }
+            $app = Start-Process "$target\OpenBurningSuite.exe" -PassThru
+            Start-Sleep -Seconds 12
+            $app.Refresh()
+            if ($app.HasExited) { throw "Application exited during $language startup: $($app.ExitCode)" }
+            $titles = @{
+              'en' = 'Open Burning Suite — Disc Burning & Imaging'
+              'ru' = 'Open Burning Suite — Запись дисков и создание образов'
+              'zh-Hans' = 'Open Burning Suite — 光盘刻录与镜像制作'
+              'ja' = 'Open Burning Suite — ディスクの書き込み・イメージ作成'
+            }
+            if ($app.MainWindowHandle -eq [IntPtr]::Zero -or $app.MainWindowTitle -ne $titles[$language]) {
+              throw "Expected localized application window for $language; got '$($app.MainWindowTitle)'"
+            }
+            Stop-Process -Id $app.Id
+            $uninstall = Start-Process "$target\unins000.exe" -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART') -Wait -PassThru
+            if ($uninstall.ExitCode -ne 0) { throw "Uninstallation failed: $language" }
+          }
+      - uses: actions/upload-artifact@v5
         with:
-          name: win-${{ matrix.arch }}-zip
-          path: OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}.zip
+          name: windows-amd64-installer
+          path: installer/*.exe
           if-no-files-found: error
-
-      - name: Upload Installer
-        uses: actions/upload-artifact@v5
-        with:
-          name: win-${{ matrix.arch }}-installer
-          path: installer/OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}-Installer.exe
-          if-no-files-found: error
-
-      - name: Upload to Release
+      - name: Publish one installer to Releases
         if: startsWith(github.ref, 'refs/tags/v')
-        id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}.zip
-            installer/OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}-Installer.exe
-
-      - name: VirusTotal Scan
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: cssnr/virustotal-action@v1
-        continue-on-error: true
-        with:
-          vt_api_key: ${{ secrets.VT_API_KEY }}
-          file_globs: |
-            OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}.zip
-            installer/OpenBurningSuite-v${{ env.APP_VERSION }}-win-${{ matrix.arch }}-Installer.exe
-          sha256: true
-          update_release: true
-          release_id: ${{ steps.create_release.outputs.id }}
-          release_heading: '### 🔬 VirusTotal'
-          collapsed: true
+          name: Open Burning Suite v${{ env.APP_VERSION }} · Windows amd64 · English / Русский / 简体中文 / 日本語
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          files: installer/*.exe

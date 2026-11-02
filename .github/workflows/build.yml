@@ -1,4 +1,4 @@
-name: Build All
+name: Release Windows amd64 installer
 
 on:
   workflow_dispatch:
@@ -15,12 +15,4 @@ concurrency:
 jobs:
   build-windows:
     uses: ./.github/workflows/build-Windows.yml
-    secrets: inherit
-
-  build-linux:
-    uses: ./.github/workflows/build-linux.yml
-    secrets: inherit
-
-  build-macos:
-    uses: ./.github/workflows/build-macOS.yml
     secrets: inherit
