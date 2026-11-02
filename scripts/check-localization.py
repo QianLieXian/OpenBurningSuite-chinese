@@ -69,6 +69,7 @@ def main():
                 values.add(element.text.strip())
     process = subprocess.run(['dotnet', 'run', '--project', str(ROOT / 'tools/LocalizationCatalog'), '-c', 'Release', '--', str(ROOT)], text=True, stdout=subprocess.PIPE)
     if process.returncode:
+        sys.stderr.write(process.stdout)
         return process.returncode
     # dotnet may prepend first-run/build notices; the scanner's JSON starts at the first [.
     output = process.stdout

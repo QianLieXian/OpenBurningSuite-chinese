@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Text.Json;
 var root = Path.Combine(Path.GetFullPath(args.FirstOrDefault() ?? "."), "OpenBurningSuite");
 var entries = new List<object>();
-foreach(var file in Directory.GetFiles(root,"*.cs",SearchOption.AllDirectories).Where(f=>!f.Contains("/obj/")&&!f.Contains("/bin/")&&!f.Contains("/Localization/"))) {
+foreach(var file in Directory.GetFiles(root,"*.cs",SearchOption.AllDirectories).Where(f => !Path.GetRelativePath(root, f).Replace('\\', '/').Split('/').Any(part => part is "obj" or "bin" or "Localization"))) {
  var syntax=CSharpSyntaxTree.ParseText(File.ReadAllText(file));
  foreach(var node in syntax.GetRoot().DescendantNodes()) {
   string value=null;
