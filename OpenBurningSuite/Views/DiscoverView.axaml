@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18n="clr-namespace:OpenBurningSuite.Localization"
              xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
              x:Class="OpenBurningSuite.Views.DiscoverView"
              Background="#0C1622">
@@ -123,7 +124,7 @@
                         <Border Grid.Column="2" Grid.Row="0" Classes="InfoCard" Margin="0,0,0,6">
                             <StackPanel Spacing="4">
                                 <TextBlock Text="VOLUME LABEL" Foreground="#5A7A9A" FontSize="10" FontWeight="Bold"/>
-                                <TextBlock x:Name="TxtVolumeLabel" Text="—" Foreground="#E8F0FE" FontSize="14"
+                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" x:Name="TxtVolumeLabel" Text="—" Foreground="#E8F0FE" FontSize="14"
                                            ToolTip.Tip="The volume label stored on the disc"/>
                             </StackPanel>
                         </Border>
@@ -308,21 +309,21 @@
                         <Border Grid.Column="0" Classes="InfoCard" Padding="10" Margin="0,0,4,0">
                             <StackPanel Spacing="3">
                                 <TextBlock Text="VENDOR" Foreground="#5A7A9A" FontSize="10" FontWeight="Bold"/>
-                                <TextBlock x:Name="TxtDriveVendor" Text="—" Foreground="#E8F0FE" FontSize="12"
+                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" x:Name="TxtDriveVendor" Text="—" Foreground="#E8F0FE" FontSize="12"
                                            ToolTip.Tip="Drive manufacturer / vendor ID"/>
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="1" Classes="InfoCard" Padding="10" Margin="4,0,4,0">
                             <StackPanel Spacing="3">
                                 <TextBlock Text="FIRMWARE" Foreground="#5A7A9A" FontSize="10" FontWeight="Bold"/>
-                                <TextBlock x:Name="TxtDriveFirmware" Text="—" Foreground="#E8F0FE" FontSize="12"
+                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" x:Name="TxtDriveFirmware" Text="—" Foreground="#E8F0FE" FontSize="12"
                                            ToolTip.Tip="Drive firmware revision"/>
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="2" Classes="InfoCard" Padding="10" Margin="4,0,4,0">
                             <StackPanel Spacing="3">
                                 <TextBlock Text="SERIAL" Foreground="#5A7A9A" FontSize="10" FontWeight="Bold"/>
-                                <TextBlock x:Name="TxtDriveSerial" Text="—" Foreground="#E8F0FE" FontSize="12"
+                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" x:Name="TxtDriveSerial" Text="—" Foreground="#E8F0FE" FontSize="12"
                                            ToolTip.Tip="Drive serial number"/>
                             </StackPanel>
                         </Border>

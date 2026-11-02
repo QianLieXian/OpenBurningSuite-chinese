@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18n="clr-namespace:OpenBurningSuite.Localization"
              xmlns:views="clr-namespace:OpenBurningSuite.Views"
              x:Class="OpenBurningSuite.Views.ReadView"
              Background="#0C1622">
@@ -97,7 +98,7 @@
 
                             <TextBlock Text="Volume Label:" Grid.Row="1" Grid.Column="0"
                                        Foreground="#5A7A9A" FontSize="11"/>
-                            <TextBlock x:Name="TxtDetectedVolumeLabel" Grid.Row="1" Grid.Column="1"
+                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" x:Name="TxtDetectedVolumeLabel" Grid.Row="1" Grid.Column="1"
                                        Text="" Foreground="#8EAFC8" FontSize="11"/>
 
                             <TextBlock Text="Media Type:" Grid.Row="2" Grid.Column="0"

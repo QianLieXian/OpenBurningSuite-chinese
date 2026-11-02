@@ -528,13 +528,13 @@ public partial class DataWizardView : UserControl
             FontWeight = Avalonia.Media.FontWeight.SemiBold,
             Width = 180
         });
-        sp.Children.Add(new TextBlock
+        sp.Children.Add(OpenBurningSuite.Localization.PresentationLocalization.ProtectSummaryValue(new TextBlock
         {
             Text = value,
             Foreground = Avalonia.Media.Brush.Parse("#E8F0FE"),
             FontSize = 12,
             TextWrapping = Avalonia.Media.TextWrapping.Wrap
-        });
+        }, label));
         DataSummaryContent.Children.Add(sp);
     }
 
@@ -570,13 +570,13 @@ public partial class DataWizardView : UserControl
             FontWeight = Avalonia.Media.FontWeight.SemiBold,
             Width = 180
         });
-        sp.Children.Add(new TextBlock
+        sp.Children.Add(OpenBurningSuite.Localization.PresentationLocalization.ProtectSummaryValue(new TextBlock
         {
             Text = value,
             Foreground = Avalonia.Media.Brush.Parse("#E8F0FE"),
             FontSize = 12,
             TextWrapping = Avalonia.Media.TextWrapping.Wrap
-        });
+        }, label));
         DataSummaryContent.Children.Add(sp);
     }
 

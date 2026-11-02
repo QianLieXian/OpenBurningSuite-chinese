@@ -67,7 +67,7 @@ def main():
                     values.add(value)
             if element.tag.rsplit('}', 1)[-1] in ('Run', 'Bold', 'Span', 'TextBlock', 'ComboBoxItem', 'ListBoxItem') and element.text and eligible(element.text.strip()):
                 values.add(element.text.strip())
-    process = subprocess.run(['dotnet', 'run', '--project', str(ROOT / 'tools/LocalizationCatalog'), '-c', 'Release', '--', str(ROOT)], text=True, stdout=subprocess.PIPE)
+    process = subprocess.run(['dotnet', 'run', '--project', str(ROOT / 'tools/LocalizationCatalog'), '-c', 'Release', '--', str(ROOT)], cwd=ROOT, text=True, stdout=subprocess.PIPE)
     if process.returncode:
         sys.stderr.write(process.stdout)
         return process.returncode

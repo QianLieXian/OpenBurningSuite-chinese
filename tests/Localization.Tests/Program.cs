@@ -45,6 +45,10 @@ foreach (var language in Localizer.Languages)
     Equal(names[language.Code], caption.Text, language.Code + " static caption switches immediately");
     Equal(names[language.Code], inline.Text, language.Code + " rich-text help captions switch immediately");
     Equal("Home", fileName.Text, language.Code + " user filename matching a resource key is unchanged");
+    var summaryValue = PresentationLocalization.ProtectSummaryValue(new TextBlock { Text = "Home" }, "Volume Label");
+    Equal("Home", summaryValue.Text, language.Code + " summary volume label remains user data");
+    var speedValue = PresentationLocalization.ProtectSummaryValue(new TextBlock { Text = "Auto" }, "Write Speed");
+    Equal(Localizer.Text("Auto"), speedValue.Text, language.Code + " summary option caption is localized");
     Equal("Home", editable.Text, language.Code + " editable user data is unchanged");
     Equal("Auto", combo.SelectedItem?.ToString(), language.Code + " selected burn option retains stable ID");
     var visible = combo.GetVisualDescendants().OfType<TextBlock>().Select(t => t.Text).ToArray();
@@ -52,6 +56,10 @@ foreach (var language in Localizer.Languages)
     var path = @"C:\images\{0} $1 日本語.iso";
     var template = Localizer.ReadCatalog(language.Code)["File not found: {0}"];
     Equal(template.Replace("{0}", path), Localizer.Text("File not found: " + path), language.Code + " runtime slots preserve user path and braces");
+    Equal(template.Replace("{0}", "Home"), Localizer.Text("File not found: Home"),
+        language.Code + " runtime filename matching a caption remains unchanged");
+    Equal(Localizer.ReadCatalog(language.Code)["Viewing: {0}"].Replace("{0}", names[language.Code]),
+        Localizer.Text("Viewing: Home"), language.Code + " navigation slots translate UI captions explicitly");
     Equal(path, Localizer.Text(path), language.Code + " paths are invariant");
 }
 Localizer.SetLanguage("zh-Hans");

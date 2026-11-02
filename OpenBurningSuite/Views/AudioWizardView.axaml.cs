@@ -414,13 +414,13 @@ public partial class AudioWizardView : UserControl
             FontWeight = Avalonia.Media.FontWeight.SemiBold,
             Width = 160
         });
-        sp.Children.Add(new TextBlock
+        sp.Children.Add(OpenBurningSuite.Localization.PresentationLocalization.ProtectSummaryValue(new TextBlock
         {
             Text = value,
             Foreground = Avalonia.Media.Brush.Parse("#E8F0FE"),
             FontSize = 12,
             TextWrapping = Avalonia.Media.TextWrapping.Wrap
-        });
+        }, label));
         SummaryContent.Children.Add(sp);
     }
 
@@ -456,13 +456,13 @@ public partial class AudioWizardView : UserControl
             FontWeight = Avalonia.Media.FontWeight.SemiBold,
             Width = 160
         });
-        sp.Children.Add(new TextBlock
+        sp.Children.Add(OpenBurningSuite.Localization.PresentationLocalization.ProtectSummaryValue(new TextBlock
         {
             Text = value,
             Foreground = Avalonia.Media.Brush.Parse("#E8F0FE"),
             FontSize = 12,
             TextWrapping = Avalonia.Media.TextWrapping.Wrap
-        });
+        }, label));
         SummaryContent.Children.Add(sp);
     }
 

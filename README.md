@@ -128,7 +128,7 @@ Open Burning Suite は、CD、DVD、Blu-ray とディスクイメージの作成
 
 The source supports Windows, Linux and macOS; this repository's release workflow deliberately publishes **one Windows amd64 installer**. Use the existing checkout in cloud tasks; creating another Git worktree is unnecessary.
 
-Prerequisites: .NET 8 SDK and the native libraries described in [LINUX.md](LINUX.md) or [macOS.md](macOS.md).
+Prerequisites: .NET SDK 8.0.427 or a later 8.0.4xx servicing patch (see [global.json](global.json)), and the native libraries described in [LINUX.md](LINUX.md) or [macOS.md](macOS.md).
 
 ```sh
 dotnet restore OpenBurningSuite/OpenBurningSuite.csproj

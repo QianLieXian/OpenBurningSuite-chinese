@@ -304,7 +304,7 @@ public partial class DiscoverView : UserControl
 
         TxtMediaType.Text   = string.IsNullOrWhiteSpace(m.MediaType) ? "Unknown" : m.MediaType;
         TxtDiscState.Text   = string.IsNullOrWhiteSpace(m.DiscState) ? "Unknown" : m.DiscState;
-        TxtVolumeLabel.Text = string.IsNullOrWhiteSpace(m.VolumeLabel) ? "(none)" : m.VolumeLabel;
+        TxtVolumeLabel.Text = string.IsNullOrWhiteSpace(m.VolumeLabel) ? OpenBurningSuite.Localization.Localizer.Text("(none)") : m.VolumeLabel;
         TxtCapacity.Text    = m.CapacityBytes > 0 ? m.CapacityFormatted : "Unknown";
         TxtUsedFree.Text    = m.CapacityBytes > 0
             ? $"{m.UsedFormatted} / {m.FreeFormatted}"

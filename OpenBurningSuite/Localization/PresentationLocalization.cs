@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Documents;
@@ -19,6 +20,13 @@ public sealed class PresentationLocalization : AvaloniaObject
         AvaloniaProperty.RegisterAttached<PresentationLocalization, AvaloniaObject, bool>("KeepOriginal");
     public static bool GetKeepOriginal(AvaloniaObject target) => target.GetValue(KeepOriginalProperty);
     public static void SetKeepOriginal(AvaloniaObject target, bool value) => target.SetValue(KeepOriginalProperty, value);
+    public static TextBlock ProtectSummaryValue(TextBlock target, string fieldLabel)
+    {
+        if (Regex.IsMatch(fieldLabel, @"\b(?:name|title|path|file|folder|directory|volume|vendor|serial|firmware|artist|album|performer|songwriter|composer|arranger|output)\b",
+                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+            SetKeepOriginal(target, true);
+        return target;
+    }
     private sealed class Source { public string Text = ""; public bool Updating; }
     private static readonly ConditionalWeakTable<AvaloniaObject, Dictionary<AvaloniaProperty, Source>> Sources = new();
     private static readonly List<WeakReference<AvaloniaObject>> Presenters = new();

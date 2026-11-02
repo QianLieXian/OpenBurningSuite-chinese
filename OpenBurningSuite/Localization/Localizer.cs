@@ -23,7 +23,7 @@ public static class Localizer
         new("zh-Hans", "简体中文"), new("ja", "日本語")
     };
 
-    private sealed record Pattern(Regex Regex, string Anchor, string Translation);
+    private sealed record Pattern(Regex Regex, string Anchor, string Translation, bool CaptionSlots);
     private static Dictionary<string, string> _strings = new();
     private static Pattern[] _patterns = Array.Empty<Pattern>();
     private static readonly Dictionary<string, string> Cache = new();
@@ -97,7 +97,7 @@ public static class Localizer
             return seen.Add(name) ? $"(?<{name}>.*?)" : $"\\k<{name}>";
         })) + "\\z";
         return new Pattern(new Regex(regex, RegexOptions.Singleline | RegexOptions.CultureInvariant,
-            TimeSpan.FromMilliseconds(50)), anchor, translation);
+            TimeSpan.FromMilliseconds(50)), anchor, translation, source == "Viewing: {0}");
     }
 
     public static string Text(string? source)
@@ -124,7 +124,10 @@ public static class Localizer
             return Regex.Replace(pattern.Translation, @"\{(\d+)\}", m =>
             {
                 var value = match.Groups["v" + m.Groups[1].Value];
-                return value.Success ? (_strings.TryGetValue(value.Value, out var caption) ? caption : value.Value) : m.Value;
+                // Captured values are user/device data. Only the explicit navigation-caption
+                // template contains another UI resource; a filename such as "Home" is data.
+                return value.Success ? (pattern.CaptionSlots && _strings.TryGetValue(value.Value, out var caption)
+                    ? caption : value.Value) : m.Value;
             });
         }
         var trimmed = source.Trim();
