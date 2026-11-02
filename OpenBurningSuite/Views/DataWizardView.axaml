@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18n="clr-namespace:OpenBurningSuite.Localization"
              xmlns:views="clr-namespace:OpenBurningSuite.Views"
              x:Class="OpenBurningSuite.Views.DataWizardView">
 
@@ -201,10 +202,10 @@
                                                        FontSize="16" VerticalAlignment="Center"
                                                        Margin="0,0,8,0"/>
                                             <StackPanel Grid.Column="1" Spacing="1">
-                                                <TextBlock Text="{Binding Name}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding Name}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FullPath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FullPath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>
@@ -505,10 +506,10 @@
                                                        FontSize="16" VerticalAlignment="Center"
                                                        Margin="0,0,8,0"/>
                                             <StackPanel Grid.Column="1" Spacing="1">
-                                                <TextBlock Text="{Binding Name}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding Name}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FullPath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FullPath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>

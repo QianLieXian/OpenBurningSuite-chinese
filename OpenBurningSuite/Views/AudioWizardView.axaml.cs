@@ -1053,12 +1053,12 @@ public partial class AudioWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Audio Tracks",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Audio Tracks"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Audio Files") { Patterns = new[] { "*.wav", "*.mp3", "*.wma", "*.flac", "*.ogg", "*.aiff", "*.aif", "*.aac", "*.m4a", "*.ape", "*.opus" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Audio Files")) { Patterns = new[] { "*.wav", "*.mp3", "*.wma", "*.flac", "*.ogg", "*.aiff", "*.aif", "*.aac", "*.m4a", "*.ape", "*.opus" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1183,17 +1183,17 @@ public partial class AudioWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Import Playlist",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Import Playlist"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
                 PlaylistFileFilter,
-                new FilePickerFileType("M3U Playlist")  { Patterns = new[] { "*.m3u" } },
-                new FilePickerFileType("M3U8 Playlist") { Patterns = new[] { "*.m3u8" } },
-                new FilePickerFileType("PLS Playlist")  { Patterns = new[] { "*.pls" } },
-                new FilePickerFileType("WPL Playlist")  { Patterns = new[] { "*.wpl" } },
-                new FilePickerFileType("ASX Playlist")  { Patterns = new[] { "*.asx" } },
-                new FilePickerFileType("All Files")     { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U Playlist"))  { Patterns = new[] { "*.m3u" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U8 Playlist")) { Patterns = new[] { "*.m3u8" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("PLS Playlist"))  { Patterns = new[] { "*.pls" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WPL Playlist"))  { Patterns = new[] { "*.wpl" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ASX Playlist"))  { Patterns = new[] { "*.asx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files"))     { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1283,15 +1283,15 @@ public partial class AudioWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Export Playlist",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Export Playlist"),
             SuggestedFileName = "AudioCD",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("M3U8 Playlist (UTF-8)") { Patterns = new[] { "*.m3u8" } },
-                new FilePickerFileType("M3U Playlist")          { Patterns = new[] { "*.m3u" } },
-                new FilePickerFileType("PLS Playlist")          { Patterns = new[] { "*.pls" } },
-                new FilePickerFileType("WPL Playlist")          { Patterns = new[] { "*.wpl" } },
-                new FilePickerFileType("ASX Playlist")          { Patterns = new[] { "*.asx" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U8 Playlist (UTF-8)")) { Patterns = new[] { "*.m3u8" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U Playlist"))          { Patterns = new[] { "*.m3u" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("PLS Playlist"))          { Patterns = new[] { "*.pls" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WPL Playlist"))          { Patterns = new[] { "*.wpl" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ASX Playlist"))          { Patterns = new[] { "*.asx" } }
             }
         });
 
@@ -1344,12 +1344,12 @@ public partial class AudioWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Music Files",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Music Files"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Music Files") { Patterns = new[] { "*.mp3", "*.wav", "*.flac", "*.ogg", "*.aiff", "*.aif", "*.aac", "*.wma", "*.m4a", "*.opus", "*.ape" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Music Files")) { Patterns = new[] { "*.mp3", "*.wav", "*.flac", "*.ogg", "*.aiff", "*.aif", "*.aac", "*.wma", "*.m4a", "*.opus", "*.ape" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1364,7 +1364,7 @@ public partial class AudioWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Music Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Music Folder"),
             AllowMultiple = false
         });
 
@@ -1462,17 +1462,17 @@ public partial class AudioWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Import Playlist",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Import Playlist"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
                 PlaylistFileFilter,
-                new FilePickerFileType("M3U Playlist")  { Patterns = new[] { "*.m3u" } },
-                new FilePickerFileType("M3U8 Playlist") { Patterns = new[] { "*.m3u8" } },
-                new FilePickerFileType("PLS Playlist")  { Patterns = new[] { "*.pls" } },
-                new FilePickerFileType("WPL Playlist")  { Patterns = new[] { "*.wpl" } },
-                new FilePickerFileType("ASX Playlist")  { Patterns = new[] { "*.asx" } },
-                new FilePickerFileType("All Files")     { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U Playlist"))  { Patterns = new[] { "*.m3u" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U8 Playlist")) { Patterns = new[] { "*.m3u8" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("PLS Playlist"))  { Patterns = new[] { "*.pls" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WPL Playlist"))  { Patterns = new[] { "*.wpl" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ASX Playlist"))  { Patterns = new[] { "*.asx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files"))     { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1522,15 +1522,15 @@ public partial class AudioWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Export Playlist",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Export Playlist"),
             SuggestedFileName = "MusicDisc",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("M3U8 Playlist (UTF-8)") { Patterns = new[] { "*.m3u8" } },
-                new FilePickerFileType("M3U Playlist")          { Patterns = new[] { "*.m3u" } },
-                new FilePickerFileType("PLS Playlist")          { Patterns = new[] { "*.pls" } },
-                new FilePickerFileType("WPL Playlist")          { Patterns = new[] { "*.wpl" } },
-                new FilePickerFileType("ASX Playlist")          { Patterns = new[] { "*.asx" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U8 Playlist (UTF-8)")) { Patterns = new[] { "*.m3u8" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("M3U Playlist"))          { Patterns = new[] { "*.m3u" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("PLS Playlist"))          { Patterns = new[] { "*.pls" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WPL Playlist"))          { Patterns = new[] { "*.wpl" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ASX Playlist"))          { Patterns = new[] { "*.asx" } }
             }
         });
 
@@ -1729,11 +1729,11 @@ public partial class AudioWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Audio CD Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Audio CD Image"),
             SuggestedFileName = "AudioCD",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("BIN/CUE Image") { Patterns = new[] { "*.bin" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("BIN/CUE Image")) { Patterns = new[] { "*.bin" } }
             }
         });
 
@@ -1748,7 +1748,7 @@ public partial class AudioWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Output Folder for Ripped Tracks",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Output Folder for Ripped Tracks"),
             AllowMultiple = false
         });
 

@@ -316,7 +316,7 @@ public partial class CopyWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Disc Image As",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Disc Image As"),
             DefaultExtension = ext,
             SuggestedFileName = $"disc_copy.{ext}"
         });
@@ -331,11 +331,11 @@ public partial class CopyWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select IRD Key File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select IRD Key File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("IRD Files") { Patterns = new[] { "*.ird" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("IRD Files")) { Patterns = new[] { "*.ird" } },
                 FilePickerFileTypes.All
             }
         });

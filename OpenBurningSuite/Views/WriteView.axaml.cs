@@ -303,15 +303,15 @@ public partial class WriteView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Disc Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Disc Image"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Disc Images")
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Images"))
                 {
                     Patterns = new[] { "*.iso", "*.bin", "*.cue", "*.toc", "*.img", "*.nrg", "*.mdf", "*.mds", "*.cdi", "*.ccd", "*.obse", "*.chd" }
                 },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
         if (files.Count > 0)
@@ -327,11 +327,11 @@ public partial class WriteView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select SBI File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select SBI File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("SBI Files") { Patterns = new[] { "*.sbi" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("SBI Files")) { Patterns = new[] { "*.sbi" } }
             }
         });
         if (files.Count > 0) TxtSbiPath.Text = files[0].Path.LocalPath;
@@ -352,7 +352,7 @@ public partial class WriteView : UserControl
         if (topLevel == null) return;
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Source Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Source Folder"),
             AllowMultiple = false
         });
         if (folders.Count > 0)
@@ -368,11 +368,11 @@ public partial class WriteView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Files to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Files to Disc"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
         foreach (var f in files)
@@ -385,7 +385,7 @@ public partial class WriteView : UserControl
         if (topLevel == null) return;
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Add Folder to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Folder to Disc"),
             AllowMultiple = true
         });
         foreach (var f in folders)
@@ -1232,17 +1232,17 @@ public partial class WriteView : UserControl
 
         bool isDkey = RdoWritePs3DkeyFile.IsChecked == true;
         var filter = isDkey
-            ? new FilePickerFileType("Disc Key Files") { Patterns = new[] { "*.dkey" } }
-            : new FilePickerFileType("IRD Files") { Patterns = new[] { "*.ird" } };
+            ? new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Key Files")) { Patterns = new[] { "*.dkey" } }
+            : new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("IRD Files")) { Patterns = new[] { "*.ird" } };
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = isDkey ? "Select .dkey File" : "Select IRD File",
+            Title = OpenBurningSuite.Localization.Localizer.Text(isDkey ? "Select .dkey File" : "Select IRD File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
                 filter,
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 

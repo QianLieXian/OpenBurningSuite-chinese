@@ -929,7 +929,7 @@ public partial class DataWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Files to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Files to Disc"),
             AllowMultiple = true
         });
 
@@ -945,7 +945,7 @@ public partial class DataWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Add Folder to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Folder to Disc"),
             AllowMultiple = false
         });
 
@@ -1000,7 +1000,7 @@ public partial class DataWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Files to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Files to Disc"),
             AllowMultiple = true
         });
 
@@ -1016,7 +1016,7 @@ public partial class DataWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Add Folder to Disc",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Folder to Disc"),
             AllowMultiple = false
         });
 
@@ -1098,12 +1098,12 @@ public partial class DataWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Data Disc Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Data Disc Image"),
             SuggestedFileName = "DataDisc",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1118,12 +1118,12 @@ public partial class DataWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Disc Image File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Disc Image File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Disc Images") { Patterns = new[] { "*.iso", "*.bin", "*.cue", "*.chd", "*.nrg", "*.mdf", "*.cdi", "*.img", "*.mds", "*.ccd", "*.obse" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Images")) { Patterns = new[] { "*.iso", "*.bin", "*.cue", "*.chd", "*.nrg", "*.mdf", "*.cdi", "*.img", "*.mds", "*.ccd", "*.obse" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1141,12 +1141,12 @@ public partial class DataWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Boot Image File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Boot Image File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Boot Images") { Patterns = new[] { "*.bin", "*.img", "*.efi" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Boot Images")) { Patterns = new[] { "*.bin", "*.img", "*.efi" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1161,12 +1161,12 @@ public partial class DataWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select EFI Boot Image File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select EFI Boot Image File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("EFI Images") { Patterns = new[] { "*.efi", "*.img" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("EFI Images")) { Patterns = new[] { "*.efi", "*.img" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 

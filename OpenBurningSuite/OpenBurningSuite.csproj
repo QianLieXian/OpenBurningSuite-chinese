@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,7 +13,7 @@
     <Title>Open Burning Suite</Title>
     <RepositoryUrl>https://github.com/SvenGDK/OpenBurningSuite</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>SvenGDK</Authors>
     <Company>SvenGDK</Company>
     <Product>Open Burning Suite</Product>
@@ -42,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Localization/Resources/*.json" />
     <PackageReference Include="Avalonia" Version="11.3.12" />
     <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12" />

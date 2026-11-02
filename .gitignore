@@ -6,4 +6,6 @@ run.ps1
 run.sh
 logs/
 publish/
+installer/
 *.zip
+__pycache__/

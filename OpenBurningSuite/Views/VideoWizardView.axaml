@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18n="clr-namespace:OpenBurningSuite.Localization"
              xmlns:views="clr-namespace:OpenBurningSuite.Views"
              x:Class="OpenBurningSuite.Views.VideoWizardView">
 
@@ -348,10 +349,10 @@
                                     <DataTemplate>
                                         <Grid ColumnDefinitions="*,Auto,Auto">
                                             <StackPanel Spacing="1">
-                                                <TextBlock Text="{Binding FileName}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FilePath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>
@@ -572,10 +573,10 @@
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*,Auto,Auto">
                                         <StackPanel Spacing="1">
-                                            <TextBlock Text="{Binding FileName}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                        Foreground="#E8F0FE" FontSize="12"
                                                        TextTrimming="CharacterEllipsis"/>
-                                            <TextBlock Text="{Binding FilePath}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                        Foreground="#5A7A9A" FontSize="10"
                                                        TextTrimming="CharacterEllipsis"/>
                                         </StackPanel>
@@ -813,10 +814,10 @@
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*,Auto,Auto">
                                         <StackPanel Spacing="1">
-                                            <TextBlock Text="{Binding FileName}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                        Foreground="#E8F0FE" FontSize="12"
                                                        TextTrimming="CharacterEllipsis"/>
-                                            <TextBlock Text="{Binding FilePath}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                        Foreground="#5A7A9A" FontSize="10"
                                                        TextTrimming="CharacterEllipsis"/>
                                         </StackPanel>
@@ -1081,10 +1082,10 @@
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*,Auto,Auto">
                                         <StackPanel Spacing="1">
-                                            <TextBlock Text="{Binding FileName}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                        Foreground="#E8F0FE" FontSize="12"
                                                        TextTrimming="CharacterEllipsis"/>
-                                            <TextBlock Text="{Binding FilePath}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                        Foreground="#5A7A9A" FontSize="10"
                                                        TextTrimming="CharacterEllipsis"/>
                                         </StackPanel>
@@ -1256,10 +1257,10 @@
                                                        VerticalAlignment="Center" Margin="0,0,8,0"
                                                        FontWeight="Bold" Width="24"/>
                                             <StackPanel Grid.Column="1" Spacing="1">
-                                                <TextBlock Text="{Binding FileName}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FilePath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>
@@ -1535,10 +1536,10 @@
                                                        VerticalAlignment="Center" Margin="0,0,8,0"
                                                        FontWeight="Bold" Width="24"/>
                                             <StackPanel Grid.Column="1" Spacing="1">
-                                                <TextBlock Text="{Binding FileName}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FilePath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>
@@ -1782,10 +1783,10 @@
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*,Auto">
                                         <StackPanel Grid.Column="0" Spacing="1">
-                                            <TextBlock Text="{Binding FileName}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                        Foreground="#E8F0FE" FontSize="12"
                                                        TextTrimming="CharacterEllipsis"/>
-                                            <TextBlock Text="{Binding FilePath}"
+                                            <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                        Foreground="#5A7A9A" FontSize="10"
                                                        TextTrimming="CharacterEllipsis"/>
                                         </StackPanel>
@@ -1946,10 +1947,10 @@
                                                        VerticalAlignment="Center" Margin="0,0,8,0"
                                                        FontWeight="Bold" Width="24"/>
                                             <StackPanel Grid.Column="1" Spacing="1">
-                                                <TextBlock Text="{Binding FileName}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FileName}"
                                                            Foreground="#E8F0FE" FontSize="12"
                                                            TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock Text="{Binding FilePath}"
+                                                <TextBlock i18n:PresentationLocalization.KeepOriginal="True" Text="{Binding FilePath}"
                                                            Foreground="#5A7A9A" FontSize="10"
                                                            TextTrimming="CharacterEllipsis"/>
                                             </StackPanel>

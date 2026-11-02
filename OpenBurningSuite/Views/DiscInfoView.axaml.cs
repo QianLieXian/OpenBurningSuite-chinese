@@ -47,7 +47,7 @@ public partial class DiscInfoView : UserControl
 
         var file = await top.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Log",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Log"),
             DefaultExtension = ".txt",
             SuggestedFileName = $"disc-log-{DateTime.Now:yyyyMMdd-HHmmss}.txt"
         });
@@ -88,7 +88,7 @@ public partial class DiscInfoView : UserControl
 
         var file = await top.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Disc Info",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Disc Info"),
             DefaultExtension = ".txt",
             SuggestedFileName = $"disc-info-{DateTime.Now:yyyyMMdd-HHmmss}.txt"
         });

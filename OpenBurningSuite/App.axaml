@@ -5,6 +5,10 @@
 
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="Button.NavBtn TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="MaxWidth" Value="200"/>
+        </Style>
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
 
         <!-- ===== Shared Button Styles ===== -->

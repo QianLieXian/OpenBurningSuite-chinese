@@ -18,6 +18,8 @@ public partial class App : Application
 
     public override void Initialize()
     {
+        Localization.Localizer.Initialize(Services.SettingsService.Current.Language);
+        Localization.PresentationLocalization.Register();
         AvaloniaXamlLoader.Load(this);
     }
 
@@ -44,8 +46,8 @@ public partial class App : Application
 
                 if (remaining <= 0)
                 {
-                    splash.Close();
                     _mainWindow.Show();
+                    splash.Close();
                 }
                 else
                 {
@@ -54,8 +56,8 @@ public partial class App : Application
                         DispatcherPriority.Normal,
                         (_, _) =>
                         {
-                            splash.Close();
                             _mainWindow.Show();
+                            splash.Close();
                         });
                     timer.Start();
                 }

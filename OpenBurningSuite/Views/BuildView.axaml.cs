@@ -211,7 +211,7 @@ public partial class BuildView : UserControl
         var topLevel = TopLevel.GetTopLevel(this);
         if (topLevel == null) return;
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(
-            new FolderPickerOpenOptions { Title = "Select Source Folder", AllowMultiple = false });
+            new FolderPickerOpenOptions { Title = OpenBurningSuite.Localization.Localizer.Text("Select Source Folder"), AllowMultiple = false });
         if (folders.Count > 0)
             TxtSourceFolder.Text = folders[0].Path.LocalPath;
     }
@@ -222,7 +222,7 @@ public partial class BuildView : UserControl
         if (topLevel == null) return;
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Image As",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Image As"),
             DefaultExtension = "iso",
             SuggestedFileName = "disc_image.iso"
         });
@@ -235,7 +235,7 @@ public partial class BuildView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Boot Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Boot Image"),
             AllowMultiple = false
         });
         if (files.Count > 0) TxtBootImage.Text = files[0].Path.LocalPath;
@@ -247,7 +247,7 @@ public partial class BuildView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select EFI Boot Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select EFI Boot Image"),
             AllowMultiple = false
         });
         if (files.Count > 0) TxtEfiBootImage.Text = files[0].Path.LocalPath;
@@ -259,11 +259,11 @@ public partial class BuildView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add Audio Track(s)",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add Audio Track(s)"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Audio Files")
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Audio Files"))
                 {
                     Patterns = new[] { "*.wav", "*.mp3", "*.wma", "*.flac", "*.ogg", "*.aiff", "*.aif", "*.aac", "*.m4a", "*.ape", "*.opus" }
                 }

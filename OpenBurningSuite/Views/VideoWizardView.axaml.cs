@@ -2299,21 +2299,21 @@ public partial class VideoWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add VCD Video Files",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add VCD Video Files"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("MPEG Video Files") { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
-                new FilePickerFileType("Transport Stream") { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
-                new FilePickerFileType("MP4 Video") { Patterns = new[] { "*.mp4", "*.m4v" } },
-                new FilePickerFileType("Matroska Video") { Patterns = new[] { "*.mkv", "*.mk3d" } },
-                new FilePickerFileType("WebM Video") { Patterns = new[] { "*.webm" } },
-                new FilePickerFileType("AVI Video") { Patterns = new[] { "*.avi" } },
-                new FilePickerFileType("QuickTime Video") { Patterns = new[] { "*.mov", "*.qt" } },
-                new FilePickerFileType("Ogg Video") { Patterns = new[] { "*.ogv", "*.ogx" } },
-                new FilePickerFileType("DivX Video") { Patterns = new[] { "*.divx" } },
-                new FilePickerFileType("Other Video") { Patterns = new[] { "*.wmv", "*.flv" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MPEG Video Files")) { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Transport Stream")) { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MP4 Video")) { Patterns = new[] { "*.mp4", "*.m4v" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Matroska Video")) { Patterns = new[] { "*.mkv", "*.mk3d" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WebM Video")) { Patterns = new[] { "*.webm" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("AVI Video")) { Patterns = new[] { "*.avi" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("QuickTime Video")) { Patterns = new[] { "*.mov", "*.qt" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Ogg Video")) { Patterns = new[] { "*.ogv", "*.ogx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("DivX Video")) { Patterns = new[] { "*.divx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Other Video")) { Patterns = new[] { "*.wmv", "*.flv" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -2401,21 +2401,21 @@ public partial class VideoWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add SVCD Video Files",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add SVCD Video Files"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("MPEG Video Files") { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
-                new FilePickerFileType("Transport Stream") { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
-                new FilePickerFileType("MP4 Video") { Patterns = new[] { "*.mp4", "*.m4v" } },
-                new FilePickerFileType("Matroska Video") { Patterns = new[] { "*.mkv", "*.mk3d" } },
-                new FilePickerFileType("WebM Video") { Patterns = new[] { "*.webm" } },
-                new FilePickerFileType("AVI Video") { Patterns = new[] { "*.avi" } },
-                new FilePickerFileType("QuickTime Video") { Patterns = new[] { "*.mov", "*.qt" } },
-                new FilePickerFileType("Ogg Video") { Patterns = new[] { "*.ogv", "*.ogx" } },
-                new FilePickerFileType("DivX Video") { Patterns = new[] { "*.divx" } },
-                new FilePickerFileType("Other Video") { Patterns = new[] { "*.wmv", "*.flv" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MPEG Video Files")) { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Transport Stream")) { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MP4 Video")) { Patterns = new[] { "*.mp4", "*.m4v" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Matroska Video")) { Patterns = new[] { "*.mkv", "*.mk3d" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WebM Video")) { Patterns = new[] { "*.webm" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("AVI Video")) { Patterns = new[] { "*.avi" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("QuickTime Video")) { Patterns = new[] { "*.mov", "*.qt" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Ogg Video")) { Patterns = new[] { "*.ogv", "*.ogx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("DivX Video")) { Patterns = new[] { "*.divx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Other Video")) { Patterns = new[] { "*.wmv", "*.flv" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -2503,18 +2503,18 @@ public partial class VideoWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Add XSVCD Video Files",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Add XSVCD Video Files"),
             AllowMultiple = true,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("MPEG Video Files") { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
-                new FilePickerFileType("Transport Stream") { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
-                new FilePickerFileType("MP4 Video") { Patterns = new[] { "*.mp4", "*.m4v" } },
-                new FilePickerFileType("Matroska Video") { Patterns = new[] { "*.mkv", "*.mk3d" } },
-                new FilePickerFileType("WebM Video") { Patterns = new[] { "*.webm" } },
-                new FilePickerFileType("AVI Video") { Patterns = new[] { "*.avi" } },
-                new FilePickerFileType("QuickTime Video") { Patterns = new[] { "*.mov", "*.qt" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MPEG Video Files")) { Patterns = new[] { "*.mpg", "*.mpeg", "*.mp2", "*.m1v", "*.m2v", "*.dat" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Transport Stream")) { Patterns = new[] { "*.ts", "*.mts", "*.m2ts" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("MP4 Video")) { Patterns = new[] { "*.mp4", "*.m4v" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Matroska Video")) { Patterns = new[] { "*.mkv", "*.mk3d" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("WebM Video")) { Patterns = new[] { "*.webm" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("AVI Video")) { Patterns = new[] { "*.avi" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("QuickTime Video")) { Patterns = new[] { "*.mov", "*.qt" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -2830,7 +2830,7 @@ public partial class VideoWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select VIDEO_TS Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select VIDEO_TS Folder"),
             AllowMultiple = false
         });
 
@@ -2848,11 +2848,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save DVD-Video Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save DVD-Video Image"),
             SuggestedFileName = "DVD_VIDEO",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } }
             }
         });
 
@@ -2867,7 +2867,7 @@ public partial class VideoWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select BDMV Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select BDMV Folder"),
             AllowMultiple = false
         });
 
@@ -2885,11 +2885,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Blu-ray Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Blu-ray Image"),
             SuggestedFileName = "BLURAY_DISC",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } }
             }
         });
 
@@ -2904,7 +2904,7 @@ public partial class VideoWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select BDAV Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select BDAV Folder"),
             AllowMultiple = false
         });
 
@@ -2922,11 +2922,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save BDAV Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save BDAV Image"),
             SuggestedFileName = "BDAV_DISC",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } }
             }
         });
 
@@ -2941,7 +2941,7 @@ public partial class VideoWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select BDMV 3D Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select BDMV 3D Folder"),
             AllowMultiple = false
         });
 
@@ -2959,11 +2959,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save 3D Blu-ray Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save 3D Blu-ray Image"),
             SuggestedFileName = "BLURAY3D_DISC",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } }
             }
         });
 
@@ -2978,12 +2978,12 @@ public partial class VideoWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Dependent View (Right-Eye) Video File",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Dependent View (Right-Eye) Video File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Video Files") { Patterns = new[] { "*.m2ts", "*.ts", "*.h264", "*.264", "*.mvc", "*.mp4", "*.mkv", "*.webm", "*.m4v", "*.mk3d", "*.avi", "*.mov", "*.qt", "*.ogv", "*.ogx", "*.divx" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Video Files")) { Patterns = new[] { "*.m2ts", "*.ts", "*.h264", "*.264", "*.mvc", "*.mp4", "*.mkv", "*.webm", "*.m4v", "*.mk3d", "*.avi", "*.mov", "*.qt", "*.ogv", "*.ogx", "*.divx" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -2998,11 +2998,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save VCD Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save VCD Image"),
             SuggestedFileName = "VideoCD",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("BIN/CUE Image") { Patterns = new[] { "*.bin" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("BIN/CUE Image")) { Patterns = new[] { "*.bin" } }
             }
         });
 
@@ -3017,11 +3017,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save SVCD Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save SVCD Image"),
             SuggestedFileName = "SuperVideoCD",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("BIN/CUE Image") { Patterns = new[] { "*.bin" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("BIN/CUE Image")) { Patterns = new[] { "*.bin" } }
             }
         });
 
@@ -3036,7 +3036,7 @@ public partial class VideoWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select UHD BDMV Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select UHD BDMV Folder"),
             AllowMultiple = false
         });
 
@@ -3054,11 +3054,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save UHD Blu-ray Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save UHD Blu-ray Image"),
             SuggestedFileName = "UHD_BLURAY",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } }
             }
         });
 
@@ -3073,11 +3073,11 @@ public partial class VideoWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save XSVCD Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save XSVCD Image"),
             SuggestedFileName = "XSVCD",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("BIN/CUE Image") { Patterns = new[] { "*.bin" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("BIN/CUE Image")) { Patterns = new[] { "*.bin" } }
             }
         });
 

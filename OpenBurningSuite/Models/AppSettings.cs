@@ -9,6 +9,9 @@ namespace OpenBurningSuite.Models;
 /// </summary>
 public class AppSettings
 {
+    /// <summary>UI language code; empty uses installer selection, then system language.</summary>
+    public string Language { get; set; } = string.Empty;
+
     // -----------------------------------------------------------------------
     // General
     // -----------------------------------------------------------------------

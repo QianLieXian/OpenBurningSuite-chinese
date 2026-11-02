@@ -348,7 +348,7 @@ public partial class ReadView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Image As",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Image As"),
             DefaultExtension = ext,
             SuggestedFileName = $"disc_image.{ext}"
         });

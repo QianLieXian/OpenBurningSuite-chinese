@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:OpenBurningSuite.Views"
         x:Class="OpenBurningSuite.Views.MainWindow"
-        Title="Open Burning Suite"
-        Width="1280" Height="820"
+        Title="Open Burning Suite — Disc Burning &amp; Imaging"
+        Width="1440" Height="900"
         MinWidth="1280" MinHeight="820"
         Background="#0C1622"
         WindowStartupLocation="CenterScreen">
@@ -58,7 +58,7 @@
         </Border>
 
         <!-- Main layout: sidebar + content -->
-        <Grid Grid.Row="1" ColumnDefinitions="220,*">
+        <Grid Grid.Row="1" ColumnDefinitions="280,*">
 
             <!-- Sidebar -->
             <Border Grid.Column="0" Background="#0A1520"

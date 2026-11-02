@@ -14,6 +14,9 @@ class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        for (int i = 0; i + 1 < args.Length; i++)
+            if (args[i] == "--language")
+                Services.SettingsService.Current.Language = Localization.Localizer.Normalize(args[++i]);
         try
         {
             BuildAvaloniaApp()

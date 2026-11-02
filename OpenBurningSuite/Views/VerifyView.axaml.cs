@@ -329,15 +329,15 @@ public partial class VerifyView : UserControl
         if (topLevel == null) return;
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Disc Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Disc Image"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Disc Images")
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Images"))
                 {
                     Patterns = new[] { "*.iso", "*.bin", "*.img", "*.nrg", "*.mdf", "*.mds", "*.cdi", "*.cue", "*.toc", "*.obse", "*.chd" }
                 },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
         if (files.Count > 0) TxtImagePath.Text = files[0].Path.LocalPath;

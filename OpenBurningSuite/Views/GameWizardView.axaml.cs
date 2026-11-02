@@ -1085,12 +1085,12 @@ public partial class GameWizardView : UserControl
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = "Select Game Disc Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Game Disc Image"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
-                new FilePickerFileType("Disc Images") { Patterns = new[] { "*.iso", "*.bin", "*.chd", "*.nrg", "*.mdf", "*.mds", "*.cdi", "*.img", "*.cue", "*.ccd", "*.obse" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Images")) { Patterns = new[] { "*.iso", "*.bin", "*.chd", "*.nrg", "*.mdf", "*.mds", "*.cdi", "*.img", "*.cue", "*.ccd", "*.obse" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1108,7 +1108,7 @@ public partial class GameWizardView : UserControl
 
         var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Game Folder",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select Game Folder"),
             AllowMultiple = false
         });
 
@@ -1126,12 +1126,12 @@ public partial class GameWizardView : UserControl
 
         var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
         {
-            Title = "Save Game Disc Image",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Save Game Disc Image"),
             SuggestedFileName = "GameDisc",
             FileTypeChoices = new[]
             {
-                new FilePickerFileType("ISO Image") { Patterns = new[] { "*.iso" } },
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("ISO Image")) { Patterns = new[] { "*.iso" } },
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 
@@ -1301,17 +1301,17 @@ public partial class GameWizardView : UserControl
 
         bool isDkey = RdoPs3DkeyFile.IsChecked == true;
         var filter = isDkey
-            ? new FilePickerFileType("Disc Key Files") { Patterns = new[] { "*.dkey" } }
-            : new FilePickerFileType("IRD Files") { Patterns = new[] { "*.ird" } };
+            ? new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("Disc Key Files")) { Patterns = new[] { "*.dkey" } }
+            : new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("IRD Files")) { Patterns = new[] { "*.ird" } };
 
         var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = isDkey ? "Select .dkey File" : "Select IRD File",
+            Title = OpenBurningSuite.Localization.Localizer.Text(isDkey ? "Select .dkey File" : "Select IRD File"),
             AllowMultiple = false,
             FileTypeFilter = new[]
             {
                 filter,
-                new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+                new FilePickerFileType(OpenBurningSuite.Localization.Localizer.Text("All Files")) { Patterns = new[] { "*.*" } }
             }
         });
 

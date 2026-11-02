@@ -8,6 +8,7 @@ using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using OpenBurningSuite.Models;
 using OpenBurningSuite.Services;
+using OpenBurningSuite.Localization;
 
 namespace OpenBurningSuite.Views;
 
@@ -26,6 +27,7 @@ public partial class SettingsView : UserControl
 
     private void PopulateComboBoxes()
     {
+        CmbLanguage.ItemsSource = Array.ConvertAll(Localizer.Languages, l => l.Name);
         // Write speed
         CmbDefaultWriteSpeed.ItemsSource = new[]
             { "Auto", "1x", "2x", "4x", "8x", "12x", "16x", "24x", "32x", "48x", "52x", "Max" };
@@ -105,6 +107,7 @@ public partial class SettingsView : UserControl
     private void LoadSettingsIntoUi()
     {
         var s = SettingsService.Current;
+        CmbLanguage.SelectedIndex = Array.FindIndex(Localizer.Languages, l => l.Code == Localizer.LanguageCode);
 
         // General
         ChkConfirmBeforeBurn.IsChecked      = s.ConfirmBeforeBurn;
@@ -206,6 +209,7 @@ public partial class SettingsView : UserControl
         return new AppSettings
         {
             // General
+            Language = Localizer.Languages[Math.Clamp(CmbLanguage.SelectedIndex, 0, Localizer.Languages.Length - 1)].Code,
             ConfirmBeforeBurn              = ChkConfirmBeforeBurn.IsChecked == true,
             ConfirmBeforeErase             = ChkConfirmBeforeErase.IsChecked == true,
             MinimizeToSystemTray           = ChkMinimizeToTray.IsChecked == true,
@@ -315,7 +319,10 @@ public partial class SettingsView : UserControl
     {
         var settings = CollectSettingsFromUi();
         if (SettingsService.Save(settings))
+        {
+            Localizer.SetLanguage(settings.Language);
             TxtSettingsStatus.Text = "✅ Settings saved successfully.";
+        }
         else
             TxtSettingsStatus.Text = $"⚠ Failed to save settings: {SettingsService.LastError}";
     }
@@ -323,6 +330,7 @@ public partial class SettingsView : UserControl
     private void OnResetClick(object? sender, RoutedEventArgs e)
     {
         SettingsService.ResetToDefaults();
+        Localizer.Initialize(SettingsService.Current.Language);
         LoadSettingsIntoUi();
         TxtSettingsStatus.Text = "↩ Settings reset to defaults.";
     }
@@ -367,7 +375,7 @@ public partial class SettingsView : UserControl
         if (topLevel == null) return;
         var options = new FilePickerOpenOptions
         {
-            Title = "Select chdman executable",
+            Title = OpenBurningSuite.Localization.Localizer.Text("Select chdman executable"),
             AllowMultiple = false
         };
 
@@ -469,7 +477,7 @@ public partial class SettingsView : UserControl
         if (topLevel == null) return null;
 
         var result = await topLevel.StorageProvider.OpenFolderPickerAsync(
-            new FolderPickerOpenOptions { Title = title, AllowMultiple = false });
+            new FolderPickerOpenOptions { Title = OpenBurningSuite.Localization.Localizer.Text(title), AllowMultiple = false });
 
         if (result.Count > 0)
         {

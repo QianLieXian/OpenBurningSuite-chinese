@@ -3,7 +3,7 @@
              x:Class="OpenBurningSuite.Views.SettingsView"
              Background="#0C1622">
 
-    <Grid ColumnDefinitions="220,*">
+    <Grid ColumnDefinitions="260,*">
 
         <!-- Category sidebar -->
         <Border Grid.Column="0" Background="#0A1520"
@@ -165,6 +165,12 @@
                         </StackPanel>
                         <TextBlock Text="General application behavior and user interface preferences."
                                    Foreground="#5A7A9A" FontSize="11"/>
+
+                        <Grid ColumnDefinitions="180,*">
+                            <TextBlock Text="Interface language" Classes="FieldLabel" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="CmbLanguage" Grid.Column="1" HorizontalAlignment="Stretch"
+                                      ToolTip.Tip="Choose a language, then save to apply it immediately."/>
+                        </Grid>
 
                         <CheckBox x:Name="ChkConfirmBeforeBurn"
                                   Content="Show confirmation dialog before starting burn operations"
